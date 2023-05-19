@@ -71,6 +71,70 @@ func (r Retry) Do(f func() error) error {
 	}
 }
 
+func RetryFunc1[P any](r Retry, f func(P) error, p P) error {
+	return r.Do(
+		func() error {
+			return f(p)
+		},
+	)
+}
+
+func RetryFunc2[P1, P2 any](r Retry, f func(P1, P2) error, p1 P1, p2 P2) error {
+	return r.Do(
+		func() error {
+			return f(p1, p2)
+		},
+	)
+}
+
+func RetryFunc3[P1, P2, P3 any](r Retry, f func(P1, P2, P3) error, p1 P1, p2 P2, p3 P3) error {
+	return r.Do(
+		func() error {
+			return f(p1, p2, p3)
+		},
+	)
+}
+
+func RetryFunc4[P1, P2, P3, P4 any](r Retry, f func(P1, P2, P3, P4) error, p1 P1, p2 P2, p3 P3, p4 P4) error {
+	return r.Do(
+		func() error {
+			return f(p1, p2, p3, p4)
+		},
+	)
+}
+
+func RetryFunc5[P1, P2, P3, P4, P5 any](r Retry, f func(P1, P2, P3, P4, P5) error, p1 P1, p2 P2, p3 P3, p4 P4, p5 P5) error {
+	return r.Do(
+		func() error {
+			return f(p1, p2, p3, p4, p5)
+		},
+	)
+}
+
+func RetryFunc6[P1, P2, P3, P4, P5, P6 any](r Retry, f func(P1, P2, P3, P4, P5, P6) error, p1 P1, p2 P2, p3 P3, p4 P4, p5 P5, p6 P6) error {
+	return r.Do(
+		func() error {
+			return f(p1, p2, p3, p4, p5, p6)
+		},
+	)
+}
+
+func RetryFunc7[P1, P2, P3, P4, P5, P6, P7 any](r Retry, f func(P1, P2, P3, P4, P5, P6, P7) error, p1 P1, p2 P2, p3 P3, p4 P4, p5 P5, p6 P6, p7 P7) error {
+	return r.Do(
+		func() error {
+			return f(p1, p2, p3, p4, p5, p6, p7)
+		},
+	)
+}
+
+func RetryFunc8[P1, P2, P3, P4, P5, P6, P7, P8 any](r Retry, f func(P1, P2, P3, P4, P5, P6, P7, P8) error, p1 P1, p2 P2, p3 P3, p4 P4, p5 P5, p6 P6, p7 P7, p8 P8) error {
+	return r.Do(
+		func() error {
+			return f(p1, p2, p3, p4, p5, p6, p7, p8)
+		},
+	)
+}
+
 func Retry2[R any](r Retry, f func() (R, error)) (R, error) {
 	var result R
 	err := r.Do(func() error {
